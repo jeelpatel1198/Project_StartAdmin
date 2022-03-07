@@ -1,0 +1,97 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3 row">
+    <h6 class="m-0 font-weight-bold col-10 text-dark">Category List</h6>
+    <div class="new col-2">
+      <a routerLink='add-category' class="add"><i class="fa fa-plus"></i>Add New</a>
+
+    </div>
+    <hr class="h-divider">
+    <table class="table mb-0 mt-4 table-striped table-hover text-center table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Category</th>
+          <th scope="col">Status</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let cat of category">
+          <th scope="row">{{cat.id}}</th>
+          <td>{{cat.cat}}</td>
+          <td>{{cat.st}}</td>
+          <td>
+            <!-- <button type="button" class="btn btn-primary px-3" (click)="btn3UpdateCat()"><i
+                class="fas fa-edit  pr-1"></i>Edit</button> -->
+
+
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <i class="fas fa-edit  pr-1"></i> Edit
+            </button> -->
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" (click)="editData(cat.id)" data-toggle="modal" data-target="#staticBackdrop">
+             Edit
+            </button>
+
+
+
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger px-3"><i class="fas fa-trash-alt pr-1"></i>Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form #CategoryForm="ngForm" >
+          
+          
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Category</label>
+            <input type="email" class="form-control" [(ngModel)]="cat" value="{{cat}}" name="exampleInputCat" id="exampleInputCat" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <select class="form-control"  id="exampleInputStatus" [(ngModel)]="st" value="{{st}}" name="exampleInputStatus" aria-label="Default select example">
+              <option selected value="active">Active</option>
+              <option value="deactive">Deactive</option>
+            </select>
+          </div>
+        
+          <input type="hidden" name="hidid" id="hidid" [(ngModel)]="hidid" value="{{hidid}}">
+        </form>
+       
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="btn3UpdateCat(CategoryForm)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold col-10 text-dark">Add Sub-Category</h6>
+        <div class="new col-2">
+            <a routerLink='/sub-category' class="btn btn-danger"><i class="fa fa-chevron-left pr-1"></i>Back</a>
+            
+        </div>
+        <hr class="h-divider">
+       
+
+        <table class="table mb-0 mt-4 table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col" class="py-3" colspan="5"> 
+                    <h6 class="m-0 font-weight-bold">Add Sub-Categories</h6>
+                </th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td colspan="5">
+                    <form #CategoryForm="ngForm">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Category</label>
+                            <select class="form-control" [(ngModel)]="categorys" id="exampleInputCategory" name="exampleInputCategory" aria-label="Default select example">
+                              <option selected>--Select Category--</option>
+                              <option *ngFor="let cat of category" value={{cat.id}}>{{cat.cat}}</option>
+                          
+                            </select>
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Sub Category</label>
+                          <input type="email" class="form-control" [(ngModel)]="subcategory" name="exampleInputSubcategory" id="exampleInputSubcategory" aria-describedby="emailHelp">
+                          
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Status</label>
+                          <select class="form-control" [(ngModel)]="status" name="exampleInputStatus" id="exampleInputStatus" aria-label="Default select example">
+                            <option selected value="active">Active</option>
+                            <option value="deactive">Deactive</option>
+                          </select>
+                        </div>
+                       
+                        
+                      </form>
+                     
+                </td>
+                
+              </tr>
+            </tbody>
+            <tfoot class="table-dark">
+                <tr>
+                    <td colspan="5" class="text-center">
+                      <button type="button" (click)="btn1Click(CategoryForm)" class="btn btn-primary px-4 py-2"><i class="far fa-save pr-1"></i>Save</button>
+                        
+                        <a href="" class="btn btn-danger ml-2 px-4 py-2"><i class="fas fa-window-close pr-1"></i>Cancel</a>
+                    </td>
+                </tr>
+            </tfoot>
+          </table>
+
+
+    </div>
+    
+    
+</div>

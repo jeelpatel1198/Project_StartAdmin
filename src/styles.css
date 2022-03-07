@@ -1,0 +1,41 @@
+/* category */
+
+.card .new{
+    display: block;
+    float: right;
+}
+.card .add{
+       
+        text-decoration: none;
+        font-size: 14px;
+        padding: 12px 20px;
+        cursor: pointer;
+        outline: none;
+        background-color: #0094ff;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+       
+    }
+
+    .h-divider{
+        margin-top:20px;
+        margin-bottom:5px;
+        height:1px;
+        width:100%;
+        border-top:1px solid gray;
+       }
+
+.image{
+    display: block;
+    float: right;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #999;
+    margin: 0 40px;
+}
+.search{
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 700px;
+}

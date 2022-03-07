@@ -1,0 +1,112 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3 row">
+        <h6 class="m-0 font-weight-bold col-10 text-dark">Sub-Category List</h6>
+        <div class="new col-2">
+            <a routerLink='add-sub-category' class="add"><i class="fa fa-plus"></i>Add New</a>
+            
+        </div>
+        <hr class="h-divider">
+        
+        <table class="table mb-0 mt-4 table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col" class="py-3" colspan="5"> 
+                    <h6 class="m-0 font-weight-bold">Add Categories</h6>
+                </th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td colspan="5">
+                    <table class="table mb-0 mt-4 table-striped text-center table-bordered">
+                        <thead class="table-dark">
+                          <tr>
+                            <th scope="col">SubCategory Id</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Sub-Category</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let scat of subcategory">
+                            <th scope="row">{{scat.subcatid}}</th>
+                            <td>{{scat.catid}}</td>
+                            <td>{{scat.scat}}</td>
+                            <td>{{scat.st}}</td>
+                            <td>
+                                    <button type="button" class="btn btn-primary" (click)="editData(scat.subcatid)" data-toggle="modal" data-target="#staticBackdrop">
+                                      Edit
+                                     </button>
+                            </td>
+                            <td><button type="button" class="btn btn-danger px-3"><i class="fas fa-trash-alt pr-1"></i>Delete</button></td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+                     
+                </td>
+                
+              </tr>
+            </tbody>
+           
+          </table>
+
+
+    </div>
+    
+    
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form #CategoryForm="ngForm" >
+          
+          
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Category</label>
+            <select class="form-control" [(ngModel)]="cat"  id="exampleInputCat"   name="exampleInputCat" aria-label="Default select example">
+              <option selected>--Select Category--</option>
+              <option *ngFor="let cat of category" value="{{cat.id}}">{{cat.cat}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">SubCategory</label>
+            <input type="email" class="form-control" [(ngModel)]="scat" value="{{scat}}" name="exampleInputSubCat" id="exampleInputCat" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <select class="form-control"  id="exampleInputStatus" [(ngModel)]="st" value="{{st}}" name="exampleInputStatus" aria-label="Default select example">
+              <option selected value="active">Active</option>
+              <option value="deactive">Deactive</option>
+            </select>
+          </div>
+        
+          <input type="hidden" name="hidid" id="hidid" [(ngModel)]="hidid" value="{{hidid}}">
+        </form>
+       
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="btn3UpdateCat(CategoryForm)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
